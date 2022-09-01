@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Common;
 using System.IO;
 using System.Reflection;
 using System.Text;
@@ -33,7 +35,8 @@ namespace TechJobsConsole
                 if (!values.Contains(aValue))
                 {
                     values.Add(aValue);
-                }
+                    
+                };
             }
             return values;
         }
@@ -52,6 +55,7 @@ namespace TechJobsConsole
                 if (aValue.Contains(value))
                 {
                     jobs.Add(row);
+                  
                 }
             }
 
@@ -61,10 +65,48 @@ namespace TechJobsConsole
         /*
          * Load and parse data from job_data.csv
          */
-        private static void LoadData()
-        {
+        public static List<Dictionary<string, string>> FindByValue(string value)
+        { 
+        LoadData();
 
-            if (IsDataLoaded)
+        List<Dictionary<string, string>> jobs = new List<Dictionary<string, string>>();
+
+            foreach (Dictionary<string, string> job in AllJobs)
+            {
+                foreach (KeyValuePair<string, string> kvp in job)
+                {
+                    string aValue = kvp.Value;
+
+                    if (aValue.Contains(value))
+                    {
+                        jobs.Add(job);
+                        
+                        
+                    }
+                }
+            }
+                    return jobs;
+            }
+
+
+
+        private static void LoadData() 
+        {
+            //List<Dictionary<string, string>> FindByValue(string column, string value);
+
+            //List<Dictionary<string, string>> value = new List<Dictionary<string, string>>();
+
+            //foreach (Dictionary<string, string> column in AllJobs)
+
+
+
+            //for (int p = 0; p < column.Count; p++)
+            //{
+                //foreach (KeyValuePair<string, string> kvp in column)
+                //{
+                    //Console.WriteLine(kvp.Key + ":" + kvp.Value);
+
+              if (IsDataLoaded)
             {
                 return;
             }
