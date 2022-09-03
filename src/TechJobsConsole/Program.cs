@@ -33,7 +33,7 @@ namespace TechJobsConsole
             while (true)
             {
 
-                string actionChoice = GetUserSelection("View Jobs", actionChoices).ToLower().ToUpper();
+                string actionChoice = GetUserSelection("View Jobs", actionChoices);
 
                if (actionChoice.Equals("list"))
                 {
@@ -50,7 +50,7 @@ namespace TechJobsConsole
                         Console.WriteLine("\n*** All " + columnChoices[columnChoice] + " Values ***");
                         foreach (string item in results)
                         {
-                            Console.WriteLine(item.ToLower());
+                            Console.WriteLine(item);
                         }
                     }
                 }
@@ -61,7 +61,7 @@ namespace TechJobsConsole
 
                     // What is their search term?
                     Console.WriteLine("\nSearch term: ");
-                    string searchTerm = Console.ReadLine();
+                    string searchTerm = Console.ReadLine().ToLower();
 
                     List<Dictionary<string, string>> searchResults;
 

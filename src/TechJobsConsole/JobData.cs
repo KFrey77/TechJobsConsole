@@ -75,9 +75,9 @@ namespace TechJobsConsole
             {
                 foreach (KeyValuePair<string, string> kvp in job)
                 {
-                    string aValue = kvp.Value;
+                    string aValue = kvp.Value.ToLower();
 
-                    if (aValue.Contains(value))
+                    if (aValue.Contains(value) && !jobs.Contains(job)) 
                     {
                         jobs.Add(job);
                         
