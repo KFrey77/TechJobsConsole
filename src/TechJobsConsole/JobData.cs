@@ -30,7 +30,7 @@ namespace TechJobsConsole
 
             foreach (Dictionary<string, string> job in AllJobs)
             {
-                string aValue = job[column].ToLower();
+                string aValue = job[column];
 
                 if (!values.Contains(aValue))
                 {
