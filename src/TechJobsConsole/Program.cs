@@ -50,7 +50,7 @@ namespace TechJobsConsole
                         Console.WriteLine("\n*** All " + columnChoices[columnChoice] + " Values ***");
                         foreach (string item in results)
                         {
-                            Console.WriteLine(item.ToLower());
+                            Console.WriteLine(item);
                         }
                     }
                 }
@@ -142,7 +142,7 @@ namespace TechJobsConsole
                 Console.WriteLine("****");
                 foreach (KeyValuePair<string, string> kvp in someJobs[k])
                 {
-                    Console.WriteLine(kvp.Key.ToLower() + ":" + kvp.Value.ToLower());
+                    Console.WriteLine(kvp.Key + ":" + kvp.Value);
                     
                 }
             }
